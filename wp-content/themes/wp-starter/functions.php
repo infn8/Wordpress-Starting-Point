@@ -166,6 +166,49 @@ if ( ! function_exists('add_theme_custom_post_types') ) {
 	add_action( 'init', 'add_theme_custom_post_types', 0 );
 
 }
+/* 
+=================================
+	Advanced Custom Fields
+================================= 
+*/
+
+	require_once('advanced-custom-fields-pro/acf.php');
+	add_filter('acf/settings/path', 'my_acf_settings_path');
+	function my_acf_settings_path( $path ) {
+		$path = get_stylesheet_directory() . '/advanced-custom-fields-pro/';
+		return $path;
+	}
+	add_filter('acf/settings/dir', 'my_acf_settings_dir');
+	function my_acf_settings_dir( $dir ) {
+		$dir = get_stylesheet_directory_uri() . '/advanced-custom-fields-pro/';
+		return $dir;
+	}
+
+// ACF Options
+	if( function_exists('acf_add_options_page') ) {
+		
+		acf_add_options_page(array(
+			'page_title' 	=> 'Theme General Settings',
+			'menu_title'	=> 'Theme Settings',
+			'menu_slug' 	=> 'theme-general-settings',
+			'capability'	=> 'edit_posts',
+			'icon_url'		=> 'dashicons-lightbulb',
+			'redirect'		=> false
+		));
+		
+		acf_add_options_sub_page(array(
+			'page_title' 	=> 'Theme Sub Page Settings',
+			'menu_title'	=> 'Sub Page',
+			'parent_slug'	=> 'theme-general-settings',
+		));
+		
+		acf_add_options_sub_page(array(
+			'page_title' 	=> 'Theme Other Sub Page Settings',
+			'menu_title'	=> 'Other Sub Page',
+			'parent_slug'	=> 'theme-general-settings',
+		));
+		
+	}
 
 
 
