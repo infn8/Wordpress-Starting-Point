@@ -1,0 +1,15 @@
+/*
+	Theme Name: Wordpress Starting Point
+	Theme URI: https://github.com/infn8/Wordpress-Starting-Point
+	Author: Arron Gibson
+	Author URI: https://github.com/infn8/
+	Description: A starting point for further development.  Fork this and go!
+	Version: 1.0
+	License: GNU General Public License v3 or later
+	License URI: http://www.gnu.org/licenses/gpl-3.0.html
+*/
+/*
+	This File Is Not Used For Styles.  
+	Styles Are Included With The wp_enqueue_script() Function.
+	They Live In The /css Directory and are compiled from sass files.
+*/
