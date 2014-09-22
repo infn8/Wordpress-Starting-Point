@@ -101,3 +101,7 @@ wp-content/mysql.sql
 *.asf
 *.wmv
 *.avi
+
+# ACF hide
+advanced-custom-fields-pro/
+
