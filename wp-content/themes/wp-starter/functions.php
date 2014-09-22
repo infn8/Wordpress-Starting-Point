@@ -101,6 +101,78 @@ add_action( 'wp_enqueue_scripts', 'add_theme_styles' );
 
 /* 
 =================================
+		Custom Post Types
+================================= 
+*/
+
+if ( ! function_exists('add_theme_custom_post_types') ) {
+
+	// Register Custom Post Type
+	function add_theme_custom_post_types() {
+
+		$cpts = array(
+			'cpt_item' => array(
+				'singular' => "Custom Item",
+				'plural' => "Custom Items",
+				'desc' => "This is a description of Custom Items",
+				'icon' => "dashicons-carrot",
+			),
+		);
+		foreach ($cpts as $key => $value) {
+			
+
+			$labels = array(
+				'name'                => $value['plural'],
+				'singular_name'       => $value['singular'],
+				'menu_name'           => $value['plural'],
+				'parent_item_colon'   => 'Parent '.$value['singular'].':',
+				'all_items'           => 'All '.$value['plural'],
+				'view_item'           => 'View '.$value['singular'],
+				'add_new_item'        => 'Add New '.$value['singular'],
+				'add_new'             => 'Add New '.$value['singular'],
+				'edit_item'           => 'Edit '.$value['singular'],
+				'update_item'         => 'Update '.$value['singular'],
+				'search_items'        => 'Search '.$value['singular'],
+				'not_found'           => 'No '.$value['plural'].' found',
+				'not_found_in_trash'  => 'No '.$value['plural'].' found in Trash',
+			);
+			$args = array(
+				'label'               => $key,
+				'description'         => $value['desc'],
+				'labels'              => $labels,
+				'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', ),
+				'hierarchical'        => false,
+				'public'              => true,
+				'show_ui'             => true,
+				'show_in_menu'        => true,
+				'show_in_nav_menus'   => true,
+				'show_in_admin_bar'   => true,
+				'menu_position'       => 5,
+				'can_export'          => true,
+				'has_archive'         => true,
+				'exclude_from_search' => false,
+				'publicly_queryable'  => true,
+				'capability_type'     => 'page',
+			);
+			if(!empty($value['icon'])){
+				$args['menu_icon'] = $value['icon'];
+			}
+			register_post_type( $key, $args );
+
+		}
+	}
+
+	// Hook into the 'init' action
+	add_action( 'init', 'add_theme_custom_post_types', 0 );
+
+}
+
+
+
+
+
+/* 
+=================================
 		Helper Functions
 ================================= 
 */
