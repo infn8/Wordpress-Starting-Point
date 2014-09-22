@@ -118,6 +118,9 @@ if ( ! function_exists('add_theme_custom_post_types') ) {
 				'icon' => "dashicons-carrot",
 			),
 		);
+
+		// Icons can be found here: http://melchoyce.github.io/dashicons/
+		
 		foreach ($cpts as $key => $value) {
 			
 
