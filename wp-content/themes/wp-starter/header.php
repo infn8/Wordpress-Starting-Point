@@ -34,18 +34,12 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#">Project name</a>
+					<a class="navbar-brand" href="#"><?php bloginfo('title' ); ?></a>
 				</div>
 				<div class="navbar-collapse collapse">
-					<form class="navbar-form navbar-right" role="form">
-						<div class="form-group">
-							<input type="text" placeholder="Email" class="form-control">
-						</div>
-						<div class="form-group">
-							<input type="password" placeholder="Password" class="form-control">
-						</div>
-						<button type="submit" class="btn btn-success">Sign in</button>
-					</form>
+
 				</div><!--/.navbar-collapse -->
 			</div>
 		</div>
+		<?php get_template_part('jumbotron' ); ?>
+		<div class="container">

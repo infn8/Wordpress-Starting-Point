@@ -1,38 +1,34 @@
 <?php get_header(); ?>
-		<!-- Main jumbotron for a primary marketing message or call to action -->
-		<div class="jumbotron">
-			<div class="container">
-				<h1>Hello, world!</h1>
-				<p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-				<p><a class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
+<!-- Generating Template: <?php echo basename(__FILE__, '.php'); ?>.php -->
+
+
+<div class="row">
+	<div class="col-sm-8 blog-main">
+	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+<!-- post -->
+		<div class="blog-post">
+			<h2 class="blog-post-title"><?php the_title(); ?></h2>
+			<p class="blog-post-meta"><?php the_date(); ?> by <a href="<?php the_author_link(); ?>"><?php the_author(); ?></a></p>
+			<div class="blog-post-content">
+				<?php the_content(); ?>
 			</div>
-		</div>
+		</div><!-- /.blog-post -->
+	<?php endwhile; ?>
+	<ul class="pager">
+		<li><a href="#">Previous</a></li>
+		<li><a href="#">Next</a></li>
+	</ul>
+	<!-- post navigation -->
+	<?php else: ?>
+		<h2>No Posts Found</h2>
+	<?php endif; ?>
+	</div><!-- /.blog-main -->
 
-		<div class="container">
-			<!-- Example row of columns -->
-			<div class="row">
-				<div class="col-md-4">
-					<h2>Heading</h2>
-					<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-					<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-				</div>
-				<div class="col-md-4">
-					<h2>Heading</h2>
-					<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-					<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-			 </div>
-				<div class="col-md-4">
-					<h2>Heading</h2>
-					<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-					<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-				</div>
-			</div>
+	<div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+		
+	</div><!-- /.blog-sidebar -->
 
-			<hr>
+</div>
 
-			<footer>
-				<p>&copy; Company 2014</p>
-			</footer>
-		</div> <!-- /container -->        
 <?php get_footer(); ?>
 
