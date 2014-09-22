@@ -160,7 +160,13 @@
   margin-bottom: 0; // override .navbar defaults
   border-width: 1px 0 0;
 }
-
+@media screen and ( max-width: 782px ) {
+  .navbar-fixed-top {
+    .admin-bar &{
+      top: 46px;
+    }
+  }
+}
 
 // Brand/project name
 

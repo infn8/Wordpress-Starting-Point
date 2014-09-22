@@ -7,16 +7,29 @@
 	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 <!-- post -->
 		<div class="blog-post">
-			<h2 class="blog-post-title"><?php the_title(); ?></h2>
+			<h2 class="blog-post-title"><a href="<?php the_permalink(); ?>"> <?php the_title(); ?> </a> </h2>
 			<p class="blog-post-meta"><?php the_date(); ?> by <a href="<?php the_author_link(); ?>"><?php the_author(); ?></a></p>
 			<div class="blog-post-content">
 				<?php the_content(); ?>
+				<?php edit_post_link(); ?>
 			</div>
 		</div><!-- /.blog-post -->
 	<?php endwhile; ?>
+
+
+<?php 
+	$previousLink = get_previous_posts_link(); 
+	$nextLink = get_next_posts_link(); 
+?>
+
+
 	<ul class="pager">
-		<li><a href="#">Previous</a></li>
-		<li><a href="#">Next</a></li>
+		<?php if (!empty($previousLink)) { ?>
+			<li><?php echo $previousLink; ?></li>
+		<?php } ?>
+		<?php if (!empty($nextLink)) { ?>
+			<li><?php echo $nextLink; ?></li>
+		<?php } ?>
 	</ul>
 	<!-- post navigation -->
 	<?php else: ?>
@@ -25,7 +38,7 @@
 	</div><!-- /.blog-main -->
 
 	<div class="col-sm-3 col-sm-offset-1 blog-sidebar">
-		
+		<?php get_sidebar(); ?>
 	</div><!-- /.blog-sidebar -->
 
 </div>

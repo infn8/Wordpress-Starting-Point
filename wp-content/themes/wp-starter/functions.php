@@ -81,6 +81,7 @@ function add_theme_scripts() {
 	wp_register_script( 'main-js', trailingslashit(get_template_directory_uri()).'js/main.js', array('jquery'), $theme_version);
 
 	// Enqueue scripts that you want
+	wp_enqueue_script( 'bootstrap-js' );
 	wp_enqueue_script( 'main-js' );
 }
 
@@ -98,6 +99,29 @@ function add_theme_styles() {
 // Hook into the 'wp_enqueue_scripts' action
 add_action( 'wp_enqueue_scripts', 'add_theme_styles' );
 
+
+/* 
+=================================
+			Menus
+================================= 
+*/
+
+if ( ! function_exists( 'theme_navigation_menus' ) ) {
+	// Register Navigation Menus
+	function theme_navigation_menus() {
+
+		$locations = array(
+			'navbar-top' => 'The Top Menu of the theme',
+			'navbar-footer' => 'Footer Menu',
+			);
+		register_nav_menus( $locations );
+
+	}
+	// Hook into the 'init' action
+	add_action( 'init', 'theme_navigation_menus' );
+}
+// Register Custom Navigation Walker
+require_once('includes/wp_bootstrap_navwalker.php');
 
 /* 
 =================================
