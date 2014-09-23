@@ -84,7 +84,12 @@ function add_theme_scripts() {
 	wp_register_script( 'bootstrap-js-collapse', trailingslashit(get_template_directory_uri()).'js/vendor/bootstrap/collapse.js', array( 'jquery', 'bootstrap-js-transition' ), $theme_version);
 	wp_deregister_script( 'bootstrap-js-popover' );
 	wp_register_script( 'bootstrap-js-popover', trailingslashit(get_template_directory_uri()).'js/vendor/bootstrap/popover.js', array( 'jquery', 'bootstrap-js-tooltip' ), $theme_version);
-	// Isotope
+	// DocCookies
+	wp_register_script( 'doc-cookies', trailingslashit(get_template_directory_uri()).'js/vendor/mozilla.docCookies.js', array(), $theme_version);
+	// FlexSlider
+	wp_register_script( 'doc-cookies', trailingslashit(get_template_directory_uri()).'js/vendor/mozilla.docCookies.js', array(), $theme_version);
+	// Isotope & Images loaded
+	// Commercial License Required for Commercial Jobs:  http://isotope.metafizzy.co/license.html - again, worth the money.
 	wp_register_script( 'images-loaded', trailingslashit(get_template_directory_uri()).'js/vendor/imagesloaded.pkgd.min.js', array( 'jquery' ), $theme_version);
 	wp_register_script( 'isotope', trailingslashit(get_template_directory_uri()).'js/vendor/isotope.pkgd.min.js', array( 'jquery', 'images-loaded' ), $theme_version);
 
@@ -277,3 +282,9 @@ function var_pre($var, $msg = NULL){
 	var_dump($var);
 	echo "</pre>\n";
 }
+/* 
+=================================
+	Additional Includes
+================================= 
+*/
+require_once('includes/favicons.php');
