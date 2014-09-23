@@ -54,5 +54,7 @@
 				</div><!--/.navbar-collapse -->
 			</div>
 		</div>
-		<?php get_template_part('jumbotron' ); ?>
+		<?php 
+			// get_template_part('jumbotron' ); 
+		?>
 		<div class="container">
