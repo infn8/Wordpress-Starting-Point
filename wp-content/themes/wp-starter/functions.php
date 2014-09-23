@@ -39,15 +39,22 @@ function add_theme_scripts() {
 		"theme_version" => $theme_version,
 		"jQuery_version" => $jQuery_version,
 	);
+	/*
+		===== Vendor Scripts I Always Use =====
+	*/
+	wp_register_script( 'modernizr', trailingslashit(get_template_directory_uri()).'js/vendor/modernizr.full.min.js', array(), $theme_version);
 	// Remove built in jquery
 	wp_deregister_script( 'jquery' );
 	// Register a CDN version on google
-	wp_register_script( 'jquery-cdn', '//ajax.googleapis.com/ajax/libs/jquery/'.$jQuery_version.'/jquery.min.js', array(), $theme_version);
+	wp_register_script( 'jquery-cdn', '//ajax.googleapis.com/ajax/libs/jquery/'.$jQuery_version.'/jquery.min.js', array('modernizr'), $theme_version);
 	// Create a fallback script
 	wp_register_script( 'jquery', trailingslashit(get_template_directory_uri()).'js/jquery.fallback.js', array('jquery-cdn'), $theme_version);
 	// localize the fallback with the theme vars
 	wp_localize_script( 'jquery-cdn', 'wp_theme_vars', $theme_data );
 
+	/*
+		===== Vendor Scripts I Sometimes Use (Registered but not necessarily enqueued) =====
+	*/
 	// Bootstrap JS Full
 	wp_deregister_script( 'bootstrap-js' );
 	wp_register_script( 'bootstrap-js', trailingslashit(get_template_directory_uri()).'js/vendor/bootstrap.js', array( 'jquery' ), $theme_version);
@@ -72,16 +79,26 @@ function add_theme_scripts() {
 	wp_register_script( 'bootstrap-js-scrollspy', trailingslashit(get_template_directory_uri()).'js/vendor/bootstrap/scrollspy.js', array( 'jquery' ), $theme_version);
 	wp_deregister_script( 'bootstrap-js-transition' );
 	wp_register_script( 'bootstrap-js-transition', trailingslashit(get_template_directory_uri()).'js/vendor/bootstrap/transition.js', array( 'jquery' ), $theme_version);
-	// plugins with dependencies
+	// Bootstrap Parts with dependencies
 	wp_deregister_script( 'bootstrap-js-collapse' );
 	wp_register_script( 'bootstrap-js-collapse', trailingslashit(get_template_directory_uri()).'js/vendor/bootstrap/collapse.js', array( 'jquery', 'bootstrap-js-transition' ), $theme_version);
 	wp_deregister_script( 'bootstrap-js-popover' );
 	wp_register_script( 'bootstrap-js-popover', trailingslashit(get_template_directory_uri()).'js/vendor/bootstrap/popover.js', array( 'jquery', 'bootstrap-js-tooltip' ), $theme_version);
-	// Add in theme Main JS
-	wp_register_script( 'main-js', trailingslashit(get_template_directory_uri()).'js/main.js', array('jquery'), $theme_version);
+	// Isotope
+	wp_register_script( 'images-loaded', trailingslashit(get_template_directory_uri()).'js/vendor/imagesloaded.pkgd.min.js', array( 'jquery' ), $theme_version);
+	wp_register_script( 'isotope', trailingslashit(get_template_directory_uri()).'js/vendor/isotope.pkgd.min.js', array( 'jquery', 'images-loaded' ), $theme_version);
 
-	// Enqueue scripts that you want
-	wp_enqueue_script( 'bootstrap-js' );
+
+
+
+	/*
+		===== User Scripts =====
+	*/
+	wp_register_script( 'main-js', trailingslashit(get_template_directory_uri()).'js/main.js', array('jquery'), $theme_version);
+	/*
+		===== Enqueue Scripts =====
+	*/
+	wp_enqueue_script( 'bootstrap-js-collapse' ); // Collapse used in menu with data attributes.  Can be removed if menu collapse removed
 	wp_enqueue_script( 'main-js' );
 }
 
