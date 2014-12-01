@@ -1,8 +1,8 @@
-<?php 
+<?php
 $theme_version = "1.0.0";
 $jQuery_version = "1.11.1";
 
-/* 
+/*
 =================================
 		Theme Support
 =================================
@@ -13,11 +13,11 @@ $jQuery_version = "1.11.1";
 			function add_theme_features()  {
 
 		// Add theme support for Featured Images
-				add_theme_support( 'post-thumbnails' );	
+				add_theme_support( 'post-thumbnails' );
 
 		// Add theme support for Semantic Markup
 				$markup = array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption', );
-				add_theme_support( 'html5', $markup );	
+				add_theme_support( 'html5', $markup );
 			}
 
 		// Hook into the 'after_setup_theme' action
@@ -25,10 +25,10 @@ $jQuery_version = "1.11.1";
 
 	}
 
-/* 
+/*
 =================================
 		Scripts and Styles
-================================= 
+=================================
 */
 function add_theme_scripts() {
 	global $theme_version, $jQuery_version;
@@ -122,10 +122,10 @@ function add_theme_styles() {
 add_action( 'wp_enqueue_scripts', 'add_theme_styles' );
 
 
-/* 
+/*
 =================================
 			Menus
-================================= 
+=================================
 */
 
 if ( ! function_exists( 'theme_navigation_menus' ) ) {
@@ -145,10 +145,10 @@ if ( ! function_exists( 'theme_navigation_menus' ) ) {
 // Register Custom Navigation Walker
 require_once('includes/wp_bootstrap_navwalker.php');
 
-/* 
+/*
 =================================
 		Custom Post Types
-================================= 
+=================================
 */
 
 if ( ! function_exists('add_theme_custom_post_types') ) {
@@ -166,9 +166,9 @@ if ( ! function_exists('add_theme_custom_post_types') ) {
 		);
 
 		// Icons can be found here: http://melchoyce.github.io/dashicons/
-		
+
 		foreach ($cpts as $key => $value) {
-			
+
 
 			$labels = array(
 				'name'                => $value['plural'],
@@ -215,10 +215,10 @@ if ( ! function_exists('add_theme_custom_post_types') ) {
 	add_action( 'init', 'add_theme_custom_post_types', 0 );
 
 }
-/* 
+/*
 =================================
 	Advanced Custom Fields
-================================= 
+=================================
 */
 
 	require_once('advanced-custom-fields-pro/acf.php');
@@ -235,7 +235,7 @@ if ( ! function_exists('add_theme_custom_post_types') ) {
 
 // ACF Options
 	if( function_exists('acf_add_options_page') ) {
-		
+
 		acf_add_options_page(array(
 			'page_title' 	=> 'Theme General Settings',
 			'menu_title'	=> 'Theme Settings',
@@ -244,36 +244,36 @@ if ( ! function_exists('add_theme_custom_post_types') ) {
 			'icon_url'		=> 'dashicons-lightbulb',
 			'redirect'		=> false
 		));
-		
+
 		acf_add_options_sub_page(array(
 			'page_title' 	=> 'Theme Sub Page Settings',
 			'menu_title'	=> 'Sub Page',
 			'parent_slug'	=> 'theme-general-settings',
 		));
-		
+
 		acf_add_options_sub_page(array(
 			'page_title' 	=> 'Theme Other Sub Page Settings',
 			'menu_title'	=> 'Other Sub Page',
 			'parent_slug'	=> 'theme-general-settings',
 		));
-		
+
 	}
 
 
 
 
 
-/* 
+/*
 =================================
 		Helper Functions
-================================= 
+=================================
 */
 
 function var_pre($var, $msg = NULL){
 	/*
 		Helper Function:
 			Use *instead of* var_dump();
-			will output var_dump wrapped with <pre></pre> and give an optional 2nd param for a message.  
+			will output var_dump wrapped with <pre></pre> and give an optional 2nd param for a message.
 	*/
 	echo "\n<pre>";
 	if($msg !== NULL){
@@ -282,9 +282,9 @@ function var_pre($var, $msg = NULL){
 	var_dump($var);
 	echo "</pre>\n";
 }
-/* 
+/*
 =================================
 	Additional Includes
-================================= 
+=================================
 */
 require_once('includes/favicons.php');
