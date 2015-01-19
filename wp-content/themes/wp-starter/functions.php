@@ -162,6 +162,13 @@ if ( ! function_exists('add_theme_custom_post_types') ) {
 				'plural' => "Custom Items",
 				'desc' => "This is a description of Custom Items",
 				'icon' => "dashicons-carrot",
+				'args' => array(
+				/********************
+					Override $args array below by matching keys like so:
+						'supports' => array( 'title', 'author', 'thumbnail', 'comments', ),
+						'show_in_nav_menus'   => false,
+				*********************/
+				),
 			),
 		);
 
@@ -205,6 +212,9 @@ if ( ! function_exists('add_theme_custom_post_types') ) {
 			);
 			if(!empty($value['icon'])){
 				$args['menu_icon'] = $value['icon'];
+			}
+			if (!empty($value['args'])) {
+				$args = array_merge($args, $value['args']);
 			}
 			register_post_type( $key, $args );
 
