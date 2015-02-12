@@ -278,20 +278,8 @@ if ( ! function_exists('add_theme_custom_post_types') ) {
 		Helper Functions
 =================================
 */
+require_once('includes/functions.helpers.php');
 
-function var_pre($var, $msg = NULL){
-	/*
-		Helper Function:
-			Use *instead of* var_dump();
-			will output var_dump wrapped with <pre></pre> and give an optional 2nd param for a message.
-	*/
-	echo "\n<pre>";
-	if($msg !== NULL){
-		echo "\n".$msg."\n";
-	}
-	var_dump($var);
-	echo "</pre>\n";
-}
 /*
 =================================
 	Additional Includes
