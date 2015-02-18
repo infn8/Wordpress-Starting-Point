@@ -104,4 +104,5 @@ wp-content/mysql.sql
 
 # ACF hide
 advanced-custom-fields-pro/
-
+# Grunt Setup
+node_modules/
