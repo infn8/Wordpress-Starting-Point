@@ -1,6 +1,12 @@
 <?php
 $theme_version = "1.0.0";
 $jQuery_version = "1.11.1";
+/*
+=================================
+		Includes
+=================================
+*/
+require_once('includes/functions.helpers.php');
 
 /*
 =================================
@@ -14,6 +20,9 @@ $jQuery_version = "1.11.1";
 
 		// Add theme support for Featured Images
 				add_theme_support( 'post-thumbnails' );
+
+		// Add theme support for Title Tags
+			add_theme_support( 'title-tag' );
 
 		// Add theme support for Semantic Markup
 				$markup = array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption', );
@@ -92,9 +101,13 @@ function add_theme_scripts() {
 	// Commercial License Required for Commercial Jobs:  http://isotope.metafizzy.co/license.html - again, worth the money.
 	wp_register_script( 'images-loaded', trailingslashit(get_template_directory_uri()).'js/vendor/imagesloaded.pkgd.min.js', array( 'jquery' ), $theme_version);
 	wp_register_script( 'isotope', trailingslashit(get_template_directory_uri()).'js/vendor/isotope.pkgd.min.js', array( 'jquery', 'images-loaded' ), $theme_version);
-
-
-
+	/*
+		===== Dev Scripts =====
+	*/
+	if(is_dev()){
+		wp_register_script( 'livereload-loader', trailingslashit(get_template_directory_uri()).'js/livereload-loader.js', array( 'modernizr' ), $theme_version);
+		wp_enqueue_script( 'livereload-loader' );
+	}
 
 	/*
 		===== User Scripts =====
@@ -272,13 +285,18 @@ if ( ! function_exists('add_theme_custom_post_types') ) {
 
 
 
-
 /*
 =================================
-		Helper Functions
+		Live Reload Trigger
 =================================
 */
-require_once('includes/functions.helpers.php');
+function livereload_trigger() {
+	$target = get_stylesheet_directory() . '/livereload-trigger.php';
+	touch($target);
+}
+if(is_dev()){
+	add_action( 'save_post', 'livereload_trigger' );
+}
 
 /*
 =================================

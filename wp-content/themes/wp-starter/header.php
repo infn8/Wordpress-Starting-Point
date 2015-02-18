@@ -7,7 +7,6 @@
 		<head>
 				<meta charset="utf-8">
 				<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-				<title></title>
 				<meta name="description" content="">
 				<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -38,7 +37,7 @@
 				</div>
 				<div class="navbar-collapse collapse">
 					<div class="navbar-menu navbar-right">
-						
+
 						<?php
 							wp_nav_menu( array(
 								'menu'       => 'navbar-top',
@@ -48,13 +47,13 @@
 								'menu_class' => 'nav navbar-nav',
 								'fallback_cb' => 'topbar_nav_fallback',
 								'walker' => new wp_bootstrap_navwalker())
-							);        
+							);
 						 ?>
 					</div>
 				</div><!--/.navbar-collapse -->
 			</div>
 		</div>
-		<?php 
-			// get_template_part('jumbotron' ); 
+		<?php
+			// get_template_part('jumbotron' );
 		?>
 		<div class="container">
