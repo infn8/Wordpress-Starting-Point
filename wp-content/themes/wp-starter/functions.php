@@ -112,7 +112,8 @@ function add_theme_scripts() {
 	/*
 		===== User Scripts =====
 	*/
-	wp_register_script( 'main-js', trailingslashit(get_template_directory_uri()).'js/main.js', array('jquery'), $theme_version);
+	wp_register_script( 'ajax-framework', trailingslashit(get_template_directory_uri()).'js/ajax-framework.js', array('jquery'), $theme_version);
+	wp_register_script( 'main-js', trailingslashit(get_template_directory_uri()).'js/main.js', array('jquery', 'ajax-framework'), $theme_version);
 	/*
 		===== Enqueue Scripts =====
 	*/
@@ -297,6 +298,51 @@ function livereload_trigger() {
 if(is_dev()){
 	add_action( 'save_post', 'livereload_trigger' );
 }
+
+/*
+=================================
+	Ajax Functions
+=================================
+*/
+function get_the_ajax_delimiter($start = true){
+	if ($start === true || strtolower($start) === 'start' || strtolower($start) === 'begin') {
+		$delim = 'start';
+	} elseif (empty($start) || strtolower($start) === 'stop' || strtolower($start) === 'end' ) {
+		$delim = 'stop';
+	} else {
+		return false;
+	}
+	if (!is_ajax_request()) {
+		return false;
+	}
+	return "<!--ajax-".$delim."-->";
+}
+function get_the_ajax_delimiter_start(){
+	return get_the_ajax_delimiter(true);
+}
+function get_the_ajax_delimiter_stop(){
+	return get_the_ajax_delimiter(false);
+}
+function the_ajax_delimiter($start = true){
+	echo get_the_ajax_delimiter($start);
+}
+function the_ajax_delimiter_start(){
+	echo get_the_ajax_delimiter(true);
+}
+function the_ajax_delimiter_stop(){
+	echo get_the_ajax_delimiter(false);
+}
+function remove_more_link_scroll( $link, $text ) {
+	$link = preg_replace( '|#more-[0-9]+|', '', $link );
+	$link = preg_replace( '|class="more-link"|', 'class="more-link" data-content-target=".blog-post" data-target-is-ancestor="true"', $link );
+	$link = str_replace($text, "Read More", $link);
+	return $link;
+}
+function is_ajax_request() {
+	return !empty($_POST["ajaxRequest"]) && $_POST["ajaxRequest"] == 'true';
+}
+add_filter( 'the_content_more_link', 'remove_more_link_scroll', 10, 2 );
+
 
 /*
 =================================
