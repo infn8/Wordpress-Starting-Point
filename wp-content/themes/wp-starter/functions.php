@@ -210,7 +210,7 @@ if ( ! function_exists('add_theme_custom_post_types') ) {
 				'label'               => $key,
 				'description'         => $value['desc'],
 				'labels'              => $labels,
-				'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', ),
+				'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions' ),
 				'hierarchical'        => false,
 				'public'              => true,
 				'show_ui'             => true,
