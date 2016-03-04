@@ -1,0 +1,59 @@
+<h1>Quid autem habent admirationis, cum prope accesseris?</h1>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duo Reges: constructio interrete. Summum a vobis bonum voluptas dicitur. Ab his oratores, ab his imperatores ac rerum publicarum principes extiterunt. Cave putes quicquam esse verius. </p>
+<!--more-->
+<dl>
+	<dt><dfn>Falli igitur possumus.</dfn></dt>
+	<dd>Collatio igitur ista te nihil iuvat.</dd>
+	<dt><dfn>Erat enim Polemonis.</dfn></dt>
+	<dd>In qua quid est boni praeter summam voluptatem, et eam sempiternam?</dd>
+	<dt><dfn>Avaritiamne minuis?</dfn></dt>
+	<dd>Si verbum sequimur, primum longius verbum praepositum quam bonum.</dd>
+	<dt><dfn>Ita credo.</dfn></dt>
+	<dd>Sit hoc ultimum bonorum, quod nunc a me defenditur;</dd>
+	<dt><dfn>Nihilo magis.</dfn></dt>
+	<dd>Quacumque enim ingredimur, in aliqua historia vestigium ponimus.</dd>
+	<dt><dfn>Pollicetur certe.</dfn></dt>
+	<dd>An me, inquis, tam amentem putas, ut apud imperitos isto modo loquar?</dd>
+</dl>
+
+
+<p><code>Itaque ab his ordiamur.</code> Prioris generis est docilitas, memoria; Quem si tenueris, non modo meum Ciceronem, sed etiam me ipsum abducas licebit. Diodorus, eius auditor, adiungit ad honestatem vacuitatem doloris. Tollitur beneficium, tollitur gratia, quae sunt vincla concordiae. <a href='http://loripsum.net/' target='_blank'>Quorum altera prosunt, nocent altera.</a> </p>
+
+<blockquote cite='http://loripsum.net'>
+	Sed hoc summum bonum, quod tertia significatione intellegitur, eaque vita, quae ex summo bono degitur, quia coniuncta ei virtus est.
+</blockquote>
+
+
+<pre>
+Nihilne te delectat umquam -video, quicum loquar-, te
+igitur, Torquate, ipsum per se nihil delectat?
+
+Verum enim diceret, idque Socratem, qui voluptatem nullo
+loco numerat, audio dicentem, cibi condimentum esse famem,
+potionis sitim.
+</pre>
+
+
+<p>Aliter enim explicari, quod quaeritur, non potest. <i>De illis, cum volemus.</i> Negare non possum. Putabam equidem satis, inquit, me dixisse. Sin aliud quid voles, postea. Sed potestne rerum maior esse dissensio? Non enim ipsa genuit hominem, sed accepit a natura inchoatum. </p>
+
+<p>Sint ista Graecorum; <b>Cui Tubuli nomen odio non est?</b> <a href='http://loripsum.net/' target='_blank'>At hoc in eo M.</a> Piso igitur hoc modo, vir optimus tuique, ut scis, amantissimus. Quid, si reviviscant Platonis illi et deinceps qui eorum auditores fuerunt, et tecum ita loquantur? Ex ea difficultate illae fallaciloquae, ut ait Accius, malitiae natae sunt. Illis videtur, qui illud non dubitant bonum dicere -; Scrupulum, inquam, abeunti; Quo studio Aristophanem putamus aetatem in litteris duxisse? </p>
+
+<ol>
+	<li>Quis est autem dignus nomine hominis, qui unum diem totum velit esse in genere isto voluptatis?</li>
+	<li>Scripta sane et multa et polita, sed nescio quo pacto auctoritatem oratio non habet.</li>
+</ol>
+
+
+<ul>
+	<li>Vos autem cum perspicuis dubia debeatis illustrare, dubiis perspicua conamini tollere.</li>
+	<li>Quae quidem vel cum periculo est quaerenda vobis;</li>
+	<li>Idem fecisset Epicurus, si sententiam hanc, quae nunc Hieronymi est, coniunxisset cum Aristippi vetere sententia.</li>
+	<li>Quamquam non negatis nos intellegere quid sit voluptas, sed quid ille dicat.</li>
+</ul>
+
+
+<h2>Cur id non ita fit?</h2>
+
+<p><i>Quare attende, quaeso.</i> Longum est enim ad omnia respondere, quae a te dicta sunt. An nisi populari fama? Ab his oratores, ab his imperatores ac rerum publicarum principes extiterunt. Vide, quaeso, rectumne sit. </p>
+
