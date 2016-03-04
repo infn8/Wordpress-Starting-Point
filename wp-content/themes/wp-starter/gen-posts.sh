@@ -1,4 +1,8 @@
 #!/bin/sh
+
+# Requirements: http://wp-cli.org
+
+
 if [ -z "$1" ]; then
     echo "no params"
     COUNT=1
