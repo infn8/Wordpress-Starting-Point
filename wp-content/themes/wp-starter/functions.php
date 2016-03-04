@@ -346,6 +346,101 @@ add_filter( 'the_content_more_link', 'remove_more_link_scroll', 10, 2 );
 
 /*
 =================================
+	Shortcodes
+=================================
+*/
+function custom_shortcode_break( $atts , $content = null ) {
+
+	// Attributes
+	extract( shortcode_atts(
+		array(
+			'visible' => '',
+			'hidden' => '',
+		), $atts )
+	);
+	$visible_sizes = explode(" ", $visible);
+	$hidden_sizes = explode(" ", $hidden);
+	$classes = "";
+	if (!empty($visible_sizes)) {
+		foreach ($visible_sizes as $size) {
+			if (!empty($size)) {
+				$classes .= " visible-".$size;
+			}
+		}
+	}
+	if (!empty($hidden_sizes)) {
+		foreach ($hidden_sizes as $size) {
+			if (!empty($size)) {
+				$classes .= " hidden-".$size;
+			}
+		}
+	}
+	$classes = trim($classes);
+	$classAttr = empty($classes) ? "" : 'class=\"$classes\"';
+	return "<br $classAttr />";
+}
+add_shortcode( 'break', 'custom_shortcode_break' );
+
+function custom_shortcode_blockquote( $atts , $content = null ) {
+
+	// Attributes
+	extract( shortcode_atts(
+		array(
+			'attribution' => false,
+			'title' => false,
+		), $atts )
+	);
+	$do_attr = !empty($attribution);
+	$do_title = !empty($title);
+	ob_start();
+	?>
+	<div class="shortcode-blockquote">
+		<blockquote>
+			<header>
+				<span class="quote open-quote"><?php the_svg('open-quote'); ?></span><?php echo trim(do_shortcode( $content )); ?><span class="quote close-quote"><?php the_svg('close-quote'); ?></span>
+			</header>
+			<?php if ($do_attr) { ?>
+				<footer><?php echo $attribution;
+					if ($do_title) {
+						echo ", ";
+						?> <cite><?php echo $title; ?></cite>
+					<?php } ?>
+				</footer>
+			<?php } ?>
+		</blockquote>
+	</div><!-- /.shortcode-blockquote -->
+	<?php
+	return ob_get_clean();
+}
+add_shortcode( 'blockquote', 'custom_shortcode_blockquote' );
+
+function custom_shortcode_lorem() {
+	return "<p class=\"content-lorem\">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis dolorum suscipit ut est recusandae laboriosam deleniti pariatur repellendus voluptates earum vel, mollitia consequuntur deserunt dignissimos a quod eaque nemo dolores.</p>";
+}
+add_shortcode( 'lorem', 'custom_shortcode_lorem' );
+
+function custom_shortcode_reg( $atts , $content = null ) {
+	extract( shortcode_atts(
+		array(
+			'case' => 'uppercase',
+		), $atts )
+	);
+	return "<sup class=\"$case sup-reg\">&reg;</sup>";
+}
+add_shortcode( 'reg', 'custom_shortcode_reg' );
+
+function custom_shortcode_trade( $atts , $content = null ) {
+	extract( shortcode_atts(
+		array(
+			'case' => 'uppercase',
+		), $atts )
+	);
+	return "<sup class=\"$case sup-trade\">&trade;</sup>";
+}
+add_shortcode( 'trade', 'custom_shortcode_trade' );
+
+/*
+=================================
 	Additional Includes
 =================================
 */
