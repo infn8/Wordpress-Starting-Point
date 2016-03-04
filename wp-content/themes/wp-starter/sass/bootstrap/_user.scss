@@ -1,0 +1,22 @@
+/*
+======================================
+	Bootstrap Wordpress Stuff
+======================================
+*/
+
+.admin-bar .navbar-fixed-top{
+	 top: 32px !important;
+	@media screen and ( max-width: 782px ) {
+		 top: 46px !important;
+	}
+}
+/*
+========================
+	Ajax Framework
+========================
+*/
+.ajax-loading{
+	background: url(../img/ajax-loader.gif) 50% 50% no-repeat;
+	min-height: 50px;
+	opacity: $modal-backdrop-opacity;
+}

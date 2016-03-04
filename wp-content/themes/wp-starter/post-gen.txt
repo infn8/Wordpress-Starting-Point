@@ -1,0 +1,60 @@
+<h1>Dolor ergo, id est summum malum, metuetur semper, etiamsi non aderit;</h1>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href='http://loripsum.net/' target='_blank'>Inde igitur, inquit, ordiendum est.</a> <mark>Si longus, levis.</mark> Respondent extrema primis, media utrisque, omnia omnibus. <code>Inde igitur, inquit, ordiendum est.</code> Ego vero volo in virtute vim esse quam maximam; Duo Reges: constructio interrete. Tria genera bonorum; </p>
+
+<dl>
+	<dt><dfn>Quis hoc dicit?</dfn></dt>
+	<dd>Dulce amarum, leve asperum, prope longe, stare movere, quadratum rotundum.</dd>
+	<dt><dfn>Nihil sane.</dfn></dt>
+	<dd>Sin est etiam corpus, ista explanatio naturae nempe hoc effecerit, ut ea, quae ante explanationem tenebamus, relinquamus.</dd>
+	<dt><dfn>Haeret in salebra.</dfn></dt>
+	<dd>Commoda autem et incommoda in eo genere sunt, quae praeposita et reiecta diximus;</dd>
+	<dt><dfn>Quid de Pythagora?</dfn></dt>
+	<dd>Maximus dolor, inquit, brevis est.</dd>
+</dl>
+
+<!--more-->
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc omni virtuti vitium contrario nomine opponitur. Nec vero sum nescius esse utilitatem in historia, non modo voluptatem. <mark>Sic enim censent, oportunitatis esse beate vivere.</mark> <mark>Quis Aristidem non mortuum diligit?</mark> Duo Reges: constructio interrete. <i>Iam enim adesse poterit.</i> </p>
+
+<pre>
+Ut enim nos ex annalium monimentis testes excitamus eos,
+quorum omnis vita consumpta est in laboribus gloriosis, qui
+voluptatis nomen audire non possent, sic in vestris
+disputationibus historia muta est.
+
+Quod autem ratione actum est, id officium appellamus.
+</pre>
+
+
+<ol>
+	<li>Quod equidem non reprehendo;</li>
+	<li>Quodsi ipsam honestatem undique pertectam atque absolutam.</li>
+	<li>Teneo, inquit, finem illi videri nihil dolere.</li>
+	<li>Efficiens dici potest.</li>
+	<li>Iam doloris medicamenta illa Epicurea tamquam de narthecio proment: Si gravis, brevis;</li>
+	<li>Ergo in gubernando nihil, in officio plurimum interest, quo in genere peccetur.</li>
+</ol>
+
+
+<blockquote cite='http://loripsum.net'>
+	Sed plane dicit quod intellegit.
+</blockquote>
+
+
+<ul>
+	<li>A mene tu?</li>
+	<li>Nunc vero a primo quidem mirabiliter occulta natura est nec perspici nec cognosci potest.</li>
+	<li>Pisone in eo gymnasio, quod Ptolomaeum vocatur, unaque nobiscum Q.</li>
+	<li>Itaque si aut requietem natura non quaereret aut eam posset alia quadam ratione consequi.</li>
+</ul>
+
+<p>Idcirco enim non desideraret, quia, quod dolore caret, id in voluptate est. Simus igitur contenti his. </p>
+
+<p>Itaque rursus eadem ratione, qua sum paulo ante usus, haerebitis. Hoc loco tenere se Triarius non potuit. <i>Quid iudicant sensus?</i> <a href='http://loripsum.net/' target='_blank'>Maximus dolor, inquit, brevis est.</a> Huius, Lyco, oratione locuples, rebus ipsis ielunior. <b>Qualem igitur hominem natura inchoavit?</b> Et ais, si una littera commota sit, fore tota ut labet disciplina. Semper enim ex eo, quod maximas partes continet latissimeque funditur, tota res appellatur. <i>Sed nimis multa.</i> </p>
+
+<blockquote cite='http://loripsum.net'>
+	Pungunt quasi aculeis interrogatiunculis angustis, quibus etiam qui assentiuntur nihil commutantur animo et idem abeunt, qui venerant.
+</blockquote>
+
+
+

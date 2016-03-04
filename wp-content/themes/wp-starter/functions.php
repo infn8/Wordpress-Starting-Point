@@ -1,6 +1,12 @@
 <?php
 $theme_version = "1.0.0";
 $jQuery_version = "1.11.1";
+/*
+=================================
+		Includes
+=================================
+*/
+require_once('includes/functions.helpers.php');
 
 /*
 =================================
@@ -14,6 +20,9 @@ $jQuery_version = "1.11.1";
 
 		// Add theme support for Featured Images
 				add_theme_support( 'post-thumbnails' );
+
+		// Add theme support for Title Tags
+			add_theme_support( 'title-tag' );
 
 		// Add theme support for Semantic Markup
 				$markup = array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption', );
@@ -92,14 +101,19 @@ function add_theme_scripts() {
 	// Commercial License Required for Commercial Jobs:  http://isotope.metafizzy.co/license.html - again, worth the money.
 	wp_register_script( 'images-loaded', trailingslashit(get_template_directory_uri()).'js/vendor/imagesloaded.pkgd.min.js', array( 'jquery' ), $theme_version);
 	wp_register_script( 'isotope', trailingslashit(get_template_directory_uri()).'js/vendor/isotope.pkgd.min.js', array( 'jquery', 'images-loaded' ), $theme_version);
-
-
-
+	/*
+		===== Dev Scripts =====
+	*/
+	if(is_dev()){
+		wp_register_script( 'livereload-loader', trailingslashit(get_template_directory_uri()).'js/livereload-loader.js', array( 'modernizr' ), $theme_version);
+		wp_enqueue_script( 'livereload-loader' );
+	}
 
 	/*
 		===== User Scripts =====
 	*/
-	wp_register_script( 'main-js', trailingslashit(get_template_directory_uri()).'js/main.js', array('jquery'), $theme_version);
+	wp_register_script( 'ajax-framework', trailingslashit(get_template_directory_uri()).'js/ajax-framework.js', array('jquery'), $theme_version);
+	wp_register_script( 'main-js', trailingslashit(get_template_directory_uri()).'js/main.js', array('jquery', 'ajax-framework'), $theme_version);
 	/*
 		===== Enqueue Scripts =====
 	*/
@@ -196,7 +210,7 @@ if ( ! function_exists('add_theme_custom_post_types') ) {
 				'label'               => $key,
 				'description'         => $value['desc'],
 				'labels'              => $labels,
-				'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', ),
+				'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions' ),
 				'hierarchical'        => false,
 				'public'              => true,
 				'show_ui'             => true,
@@ -272,26 +286,64 @@ if ( ! function_exists('add_theme_custom_post_types') ) {
 
 
 
+/*
+=================================
+		Live Reload Trigger
+=================================
+*/
+function livereload_trigger() {
+	$target = get_stylesheet_directory() . '/livereload-trigger.php';
+	touch($target);
+}
+if(is_dev()){
+	add_action( 'save_post', 'livereload_trigger' );
+}
 
 /*
 =================================
-		Helper Functions
+	Ajax Functions
 =================================
 */
-
-function var_pre($var, $msg = NULL){
-	/*
-		Helper Function:
-			Use *instead of* var_dump();
-			will output var_dump wrapped with <pre></pre> and give an optional 2nd param for a message.
-	*/
-	echo "\n<pre>";
-	if($msg !== NULL){
-		echo "\n".$msg."\n";
+function get_the_ajax_delimiter($start = true){
+	if ($start === true || strtolower($start) === 'start' || strtolower($start) === 'begin') {
+		$delim = 'start';
+	} elseif (empty($start) || strtolower($start) === 'stop' || strtolower($start) === 'end' ) {
+		$delim = 'stop';
+	} else {
+		return false;
 	}
-	var_dump($var);
-	echo "</pre>\n";
+	if (!is_ajax_request()) {
+		return false;
+	}
+	return "<!--ajax-".$delim."-->";
 }
+function get_the_ajax_delimiter_start(){
+	return get_the_ajax_delimiter(true);
+}
+function get_the_ajax_delimiter_stop(){
+	return get_the_ajax_delimiter(false);
+}
+function the_ajax_delimiter($start = true){
+	echo get_the_ajax_delimiter($start);
+}
+function the_ajax_delimiter_start(){
+	echo get_the_ajax_delimiter(true);
+}
+function the_ajax_delimiter_stop(){
+	echo get_the_ajax_delimiter(false);
+}
+function remove_more_link_scroll( $link, $text ) {
+	$link = preg_replace( '|#more-[0-9]+|', '', $link );
+	$link = preg_replace( '|class="more-link"|', 'class="more-link" data-content-target=".blog-post" data-target-is-ancestor="true"', $link );
+	$link = str_replace($text, "Read More", $link);
+	return $link;
+}
+function is_ajax_request() {
+	return !empty($_POST["ajaxRequest"]) && $_POST["ajaxRequest"] == 'true';
+}
+add_filter( 'the_content_more_link', 'remove_more_link_scroll', 10, 2 );
+
+
 /*
 =================================
 	Additional Includes
