@@ -1,15 +1,23 @@
 *~
+/rsync*
 .DS_Store
 .svn
 .cvs
 *.bak
 *.swp
+bootstrap.css
 Thumbs.db
 .sass-cache/
+\!\!\! - Theme - \!\!\!
 *.log
 /sftp-config.json
 *.sublime-project
 *.sublime-workspace
+
+# build process
+node_modules/
+gulp.browser-sync.json
+svgmin/
 
 # wordpress specific
 wp-config.php
@@ -21,6 +29,8 @@ wp-content/advanced-cache.php
 wp-content/wp-cache-config.php
 wp-content/cache/*
 wp-content/cache/supercache/*
+wp-content/themes/twenty*
+/.htaccess
 
 # wpengine specific
 .smushit-status
@@ -104,5 +114,3 @@ wp-content/mysql.sql
 
 # ACF hide
 advanced-custom-fields-pro/
-# Grunt Setup
-node_modules/
